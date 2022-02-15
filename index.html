@@ -4,9 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
   <title>Notes</title>
 </head>
 <body>
-  
+  <h1 class="title">Notes:</h1>
+  <form id="noteForm" class="noteForm">
+    <div class="titleField">
+      <input id="titleText" class="titleText" type="text" placeholder="Enter your title here." required>
+    </div>
+    <div class="noteField">
+      <input id="noteText" class="noteText" type="text" placeholder="Enter your note here." required>
+    </div>
+    <div class="noteField">
+      <button id="saveNote" type="submit">Save Note</button>
+    </div>
+  </form>
+  <div class="noteField">
+    <button id="delNote">Delete Note</button>
+  </div>
+  <div class="noteField">
+    <button id="editNote">Edit Note</button>
+  </div>
+  <div class="noteField">
+    <button id="saveEdit">Save Edited Note</button>
+  </div>
+  <div id="editBox"></div>
+  <div class="labels">
+    <p>Title</p>
+    <p class="bodyT">Body</p>
+  </div>
+  <section id="notes" class="notes">
+    <ul id="noteList" class="noteList"></ul>
+
+  </section>
 </body>
 </html>
