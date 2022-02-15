@@ -3,7 +3,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   width: 95vw;
-  gap: 5px;
+  gap: 10px;
 }
 li {
   display: grid;
@@ -13,6 +13,9 @@ li {
   /* justify-content: space-between; */
   height: fit-content;
   width: 200px;
+  background-image: linear-gradient(to bottom right, purple, lightgray);
+  box-shadow: 5px 5px 5px 0 lightgray;
+  border-radius: 10px;
 }
 
 li:nth-child("span") {
@@ -24,6 +27,11 @@ li:nth-child("span") {
   margin-left: 43px;
   text-decoration: underline;
   font-size: 40px;
+  height: 40px;
+  padding-bottom: 10px;
+}
+.theNoteTitle {
+  margin: 5px;
 }
 .bodyT {
   padding-left: 10px;
@@ -53,18 +61,26 @@ li:nth-child("span") {
 h1 {
   display: flex;
   justify-content: center;
-  font-family: "lilita one", "cursive";
   font-size: 70px;
 }
 .bodyNote {
   padding-bottom: 10px;
   border-bottom: solid 1px lightgray;
   border-top: solid 1px lightgray;
+  font-family: "exo", sans-serif;
+  font-size: 20px;
+  word-break: break-all;
 }
 
 h3 {
   margin: 0px;
 }
+.title {
+  font-family: "roboto", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
 /* h3 { */
 /* border: solid 1px lightgray; */
 /* } */
