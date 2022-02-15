@@ -3,7 +3,7 @@ ul {
 }
 li {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 .labels {
   display: flex;
@@ -11,5 +11,8 @@ li {
   text-decoration: underline;
 }
 .bodyT {
-  padding-left: 80px;
+  padding-left: 120px;
+}
+.date {
+  padding-left: 120px;
 }
