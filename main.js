@@ -5,6 +5,7 @@ const delNote = document.getElementById("delNote");
 const editNote = document.getElementById("editNote");
 const noteList = document.getElementById("noteList");
 const saveNote = document.getElementById("saveNote");
+const radioB = document.querySelectorAll("radio");
 let deleted = "";
 let logged = new Date().toDateString();
 console.log(logged);
@@ -88,12 +89,12 @@ delNote.addEventListener("click", function () {
 editNote.addEventListener("click", function () {
   document.getElementById(
     radio
-  ).childNodes[1].innerHTML = `<input type="text" value ="${
+  ).childNodes[1].innerHTML = `<input type="text" id="${radio}"value ="${
     document.getElementById(radio).childNodes[1].innerHTML
   }">`;
   document.getElementById(
     radio
-  ).childNodes[2].innerHTML = `<input type="text" value ="${
+  ).childNodes[2].innerHTML = `<input type="text" id="${radio}" value="${
     document.getElementById(radio).childNodes[2].innerHTML
   }">`;
 });
@@ -113,6 +114,7 @@ listNotes();
 
 saveEdit.addEventListener("click", function () {
   event.preventDefault();
+  console.log(radio);
   const titled =
     document.getElementById(radio).childNodes[1].childNodes[0].value;
   const noted =
