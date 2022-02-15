@@ -5,7 +5,7 @@ const delNote = document.getElementById("delNote");
 const editNote = document.getElementById("editNote");
 const noteList = document.getElementById("noteList");
 const saveNote = document.getElementById("saveNote");
-const radioB = document.querySelectorAll("radio");
+const radioB = document.querySelectorAll("li");
 let deleted = "";
 let logged = new Date().toDateString();
 console.log(logged);
@@ -103,7 +103,7 @@ function renderNoteItem(noteObj) {
   const noteEl = document.createElement("li");
   noteEl.id = noteObj.id;
   noteEl.classList.add("noted");
-  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title">${noteObj.title}</h3><span class= "bodyNote"> ${noteObj.body}</span><span class="date">${noteObj.date}</span>`;
+  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title" id="${noteObj.id}">${noteObj.title}</h3><span class= "bodyNote" id="${noteObj.id}"> ${noteObj.body}</span><span id="${noteObj.id}" class="date">${noteObj.date}</span>`;
   noteList.appendChild(noteEl);
 }
 function deletNoteItem() {

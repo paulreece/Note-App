@@ -9,13 +9,12 @@ li {
   display: grid;
   flex-wrap: wrap;
   border: solid 1px black;
-  /* align-content: center; */
-  /* justify-content: space-between; */
   height: fit-content;
   width: 200px;
   background-image: linear-gradient(to bottom right, purple, lightgray);
   box-shadow: 5px 5px 5px 0 lightgray;
   border-radius: 10px;
+  border: 10px;
 }
 
 li:nth-child("span") {
