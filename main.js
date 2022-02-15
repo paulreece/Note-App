@@ -6,6 +6,23 @@ const editNote = document.getElementById("editNote");
 const noteList = document.getElementById("noteList");
 const saveNote = document.getElementById("saveNote");
 let deleted = "";
+let logged = new Date().toDateString();
+console.log(logged);
+
+// const dates = [
+//   {
+//     id: 1,
+//     title: "Sample note",
+//     body: "This is the body of my note",
+//     date: logged,
+//   },
+//   {
+//     title: "This is one",
+//     body: "of my notes",
+//     id: 2,
+//     date: logged,
+//   },
+// ];
 
 function listNotes() {
   fetch(url)
@@ -26,6 +43,7 @@ noteForm.addEventListener("submit", function () {
     body: JSON.stringify({
       title: titleText,
       body: noteText,
+      date: logged,
     }),
   })
     .then((res) => res.json())
@@ -83,7 +101,7 @@ function renderNoteItem(noteObj) {
   const noteEl = document.createElement("li");
   noteEl.id = noteObj.id;
   noteEl.classList.add("noted");
-  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><span class="title">${noteObj.title}</span><span class= "body">${noteObj.body}</span>`;
+  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><span class="title">${noteObj.title}</span><span class= "body">${noteObj.body}</span><span>${noteObj.date}</span>`;
   noteList.appendChild(noteEl);
 }
 function deletNoteItem() {
@@ -105,6 +123,7 @@ saveEdit.addEventListener("click", function () {
     body: JSON.stringify({
       title: titled,
       body: noted,
+      date: logged,
     }),
   })
     .then((res) => res.json())
