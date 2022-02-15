@@ -49,6 +49,7 @@ noteForm.addEventListener("submit", function () {
     .then((res) => res.json())
     .then((data) => {
       renderNoteItem(data);
+      noteForm.reset();
     });
 });
 
@@ -65,7 +66,7 @@ delNote.addEventListener("click", function () {
   })
     .then((res) => res.json())
     .then((data) => {
-      deletNoteItem(data);
+      console.log(data);
     });
 });
 
@@ -101,7 +102,7 @@ function renderNoteItem(noteObj) {
   const noteEl = document.createElement("li");
   noteEl.id = noteObj.id;
   noteEl.classList.add("noted");
-  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><span class="title">${noteObj.title}</span><span class= "body">${noteObj.body}</span><span>${noteObj.date}</span>`;
+  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title">${noteObj.title}</h3><span class= "bodyNote"> ${noteObj.body}</span><span class="date">${noteObj.date}</span>`;
   noteList.appendChild(noteEl);
 }
 function deletNoteItem() {
@@ -117,6 +118,8 @@ saveEdit.addEventListener("click", function () {
   const noted =
     document.getElementById(radio).childNodes[2].childNodes[0].value;
   console.log("clicked");
+  document.getElementById(radio).childNodes[3].childNodes[0].value;
+  console.log("clicked");
   fetch(url + "/" + radio, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -131,5 +134,6 @@ saveEdit.addEventListener("click", function () {
       console.log(data);
       document.getElementById(radio).childNodes[1].innerHTML = titled;
       document.getElementById(radio).childNodes[2].innerHTML = noted;
+      document.getElementById(radio).childNodes[3].innerHTML = logged;
     });
 });

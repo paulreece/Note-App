@@ -9,7 +9,7 @@
   <title>Notes</title>
 </head>
 <body>
-  <h1 class="title">Notes:</h1>
+  <h1 class="title">Jot down a Note:</h1>
   <form id="noteForm" class="noteForm">
     <div class="titleField">
       <input id="titleText" class="titleText" type="text" placeholder="Enter your title here." required>
@@ -21,20 +21,22 @@
       <button id="saveNote" type="submit">Save Note</button>
     </div>
   </form>
-  <div class="noteField">
-    <button id="delNote">Delete Note</button>
-  </div>
+  <div class="buttons">
   <div class="noteField">
     <button id="editNote">Edit Note</button>
   </div>
   <div class="noteField">
     <button id="saveEdit">Save Edited Note</button>
   </div>
+  </div>
+  <div class="noteField">
+    <button id="delNote">Delete Note</button>
+</div>
   <div id="editBox"></div>
   <div class="labels">
-    <p>Title</p>
-    <p class="bodyT">Body</p>
-    <p class="date">Date Added/Edited</p>
+    <p class="theNoteTitle">Notes:</p>
+    <p class="bodyT"></p>
+    <p class="date"></p>
   </div>
   <section id="notes" class="notes">
     <ul id="noteList" class="noteList"></ul>
