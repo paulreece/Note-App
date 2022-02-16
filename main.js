@@ -8,10 +8,9 @@ const saveNote = document.getElementById("saveNote");
 const radioB = document.querySelectorAll("li");
 let saveEdit = document.getElementById("saveEdit");
 let deleted = "";
-let logged = new Date().toLocaleString();
 // let editTitle = document.querySelector("editTitle");
 
-console.log(logged);
+// console.log(logged);
 
 function listNotes() {
   fetch(url)
@@ -25,6 +24,7 @@ function listNotes() {
 
 noteForm.addEventListener("submit", function () {
   event.preventDefault();
+  let logged = new Date().toLocaleString();
   const titleText = document.getElementById("titleText").value;
   const noteText = document.getElementById("noteText").value;
   fetch(url, {
@@ -123,6 +123,7 @@ listNotes();
 saveEdit.addEventListener("click", function savDit() {
   event.preventDefault();
   console.log(radio);
+  let logged = new Date().toLocaleString();
   const titled =
     document.getElementById(radio).childNodes[1].childNodes[0].value;
   const noted =
