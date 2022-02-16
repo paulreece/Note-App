@@ -2,7 +2,7 @@ ul {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  width: 95vw;
+  width: 100vw;
   gap: 10px;
 }
 li {
@@ -35,7 +35,8 @@ li {
   padding-left: 10px;
 }
 .date {
-  padding-left: 10px;
+  font-family: "exo", sans-serif;
+  font-size: 12px;
 }
 .buttons {
   display: flex;
@@ -105,6 +106,7 @@ input {
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0 lightgray;
   font-size: 20px;
+  word-break: break-all;
 }
 .editTitle {
   font-family: "roboto", sans-serif;
@@ -112,10 +114,17 @@ input {
   font-size: 20px;
   /* background-image: linear-gradient(to bottom right, purple, lightgray); */
   word-break: break-all;
-  width: 180px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px 0 lightgray;
-  border: solid 1px lightgray;
+  width: 192px;
+  /* border-radius: 10px; */
+  /* box-shadow: 5px 5px 5px 0 lightgray; */
+  /* border: solid 1px lightgray; */
+  border-radius: 0px;
+  box-shadow: none;
+}
+.editText {
+  width: 192px;
+  border-radius: 0px;
+  box-shadow: none;
 }
 .titleText::placeholder {
   font-family: "roboto", sans-serif;

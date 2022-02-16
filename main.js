@@ -94,7 +94,7 @@ editNote.addEventListener("click", function () {
   }">`;
   document.getElementById(
     radio
-  ).childNodes[2].innerHTML = `<input type="text" id="${radio}" value="${
+  ).childNodes[2].innerHTML = `<input type="text" class="editText" id="${radio}" value="${
     document.getElementById(radio).childNodes[2].innerHTML
   }">`;
 });
@@ -103,7 +103,7 @@ function renderNoteItem(noteObj) {
   const noteEl = document.createElement("li");
   noteEl.id = noteObj.id;
   noteEl.classList.add("noted");
-  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title" id="${noteObj.id}">${noteObj.title}</h3><span class= "bodyNote" id="${noteObj.id}"> ${noteObj.body}</span><span id="${noteObj.id}" class="date">${noteObj.date}</span>`;
+  noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title" id="${noteObj.id}">${noteObj.title}</h3><span class= "bodyNote" id="${noteObj.id}">${noteObj.body}</span><span id="${noteObj.id}" class="date">${noteObj.date}</span>`;
   noteList.appendChild(noteEl);
 }
 function deletNoteItem() {
