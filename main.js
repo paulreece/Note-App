@@ -113,7 +113,7 @@ function renderNoteItem(noteObj) {
   noteEl.id = noteObj.id;
   noteEl.classList.add("noted");
   noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title" id="${noteObj.id}">${noteObj.title}</h3><span class= "bodyNote" id="${noteObj.id}">${noteObj.body}</span><span id="${noteObj.id}" class="date">${noteObj.date}</span>`;
-  noteList.appendChild(noteEl);
+  noteList.prepend(noteEl);
 }
 
 function deletNoteItem() {
@@ -135,6 +135,7 @@ saveContain.addEventListener("click", function savDit() {
   console.log("clicked");
   document.getElementById(radio).childNodes[3].childNodes[0].value;
   console.log("clicked");
+  noteList.prepend(document.getElementById(radio));
   fetch(url + "/" + radio, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
