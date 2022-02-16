@@ -8,7 +8,7 @@ const saveNote = document.getElementById("saveNote");
 const radioB = document.querySelectorAll("li");
 let saveEdit = document.getElementById("saveEdit");
 let deleted = "";
-let logged = new Date().toDateString();
+let logged = new Date().toLocaleString();
 // let editTitle = document.querySelector("editTitle");
 
 console.log(logged);
@@ -51,6 +51,8 @@ noteList.addEventListener("click", function liListen(e) {
 
 delNote.addEventListener("click", function () {
   event.preventDefault();
+  console.log(radio);
+  let noteEl = document.getElementById(radio);
   fetch(url + "/" + radio, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
@@ -59,6 +61,12 @@ delNote.addEventListener("click", function () {
     .then((data) => {
       console.log(data);
     });
+  noteList.removeChild(noteEl);
+  noteList.addEventListener("click", function liListen(e) {
+    radio = e.target.id;
+    console.log(radio);
+    noteList.removeEventListener("click", liListen);
+  });
 });
 
 // editNote.addEventListener("click", function () {
@@ -103,7 +111,10 @@ function renderNoteItem(noteObj) {
   noteEl.innerHTML = `<input type="radio" name="note" id="${noteObj.id}" class="radio"><h3 class="title" id="${noteObj.id}">${noteObj.title}</h3><span class= "bodyNote" id="${noteObj.id}">${noteObj.body}</span><span id="${noteObj.id}" class="date">${noteObj.date}</span>`;
   noteList.appendChild(noteEl);
 }
+
 function deletNoteItem() {
+  console.log(radio);
+  noteList.removeChild(radio);
   document.getElementById(radio).remove();
 }
 
