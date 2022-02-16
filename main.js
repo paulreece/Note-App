@@ -8,6 +8,7 @@ const saveNote = document.getElementById("saveNote");
 const radioB = document.querySelectorAll("li");
 let saveEdit = document.getElementById("saveEdit");
 let deleted = "";
+let saveContain = document.getElementById("saveContain");
 // let editTitle = document.querySelector("editTitle");
 
 // console.log(logged);
@@ -16,6 +17,11 @@ function listNotes() {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
+      function custom_sort(a, b) {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      }
+      data.sort(custom_sort);
       for (let noteObj of data) {
         renderNoteItem(noteObj);
       }
@@ -85,6 +91,7 @@ delNote.addEventListener("click", function () {
 // });
 
 editNote.addEventListener("click", function edited() {
+  console.log("edit clicked");
   document.getElementById(
     radio
   ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
@@ -95,13 +102,10 @@ editNote.addEventListener("click", function edited() {
   ).childNodes[2].innerHTML = `<input type="text" class="editText" id="${radio}" value="${
     document.getElementById(radio).childNodes[2].innerHTML
   }">`;
-  if (document.getElementById("saveContain").innerHTML.length < 1) {
-    document.getElementById(
-      "saveContain"
-    ).innerHTML = `<button id="saveEdit" onclick="foo(this);">Save Edited Note</button>`;
-  }
   editNote.removeEventListener("click", edited);
-  // console.log(document.getElementById("saveContain").innerHTML.length);
+  document.getElementById(
+    "saveContain"
+  ).innerHTML = `<button id="saveEdit">Save Edited Note</button>`;
 });
 
 function renderNoteItem(noteObj) {
@@ -120,7 +124,7 @@ function deletNoteItem() {
 
 listNotes();
 
-saveEdit.addEventListener("click", function savDit() {
+saveContain.addEventListener("click", function savDit() {
   event.preventDefault();
   console.log(radio);
   let logged = new Date().toLocaleString();
@@ -146,8 +150,9 @@ saveEdit.addEventListener("click", function savDit() {
       document.getElementById(radio).childNodes[1].innerHTML = titled;
       document.getElementById(radio).childNodes[2].innerHTML = noted;
       document.getElementById(radio).childNodes[3].innerHTML = logged;
-      // document.getElementById("saveContain").innerHTML = "";
+      document.getElementById("saveContain").innerHTML = "";
       editNote.addEventListener("click", function edited() {
+        console.log("edit clicked");
         document.getElementById(
           radio
         ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
@@ -159,6 +164,9 @@ saveEdit.addEventListener("click", function savDit() {
           document.getElementById(radio).childNodes[2].innerHTML
         }">`;
         editNote.removeEventListener("click", edited);
+        document.getElementById(
+          "saveContain"
+        ).innerHTML = `<button id="saveEdit">Save Edited Note</button>`;
       });
       noteList.addEventListener("click", function liListen(e) {
         radio = e.target.id;
@@ -168,12 +176,12 @@ saveEdit.addEventListener("click", function savDit() {
     });
 });
 
-function foo(obj) {
-  obj.disabled = true;
-  setTimeout(function () {
-    obj.disabled = false;
-  }, 6000);
-}
+// function foo(obj) {
+//   obj.disabled = true;
+//   setTimeout(function () {
+//     obj.disabled = false;
+//   }, 6000);
+// }
 // document.querySelector("editTitle").addEventListener("click", function ()
 
 // });
