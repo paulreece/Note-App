@@ -89,7 +89,7 @@ delNote.addEventListener("click", function () {
 editNote.addEventListener("click", function () {
   document.getElementById(
     radio
-  ).childNodes[1].innerHTML = `<input type="text" id="${radio}"value ="${
+  ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
     document.getElementById(radio).childNodes[1].innerHTML
   }">`;
   document.getElementById(

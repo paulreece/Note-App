@@ -11,26 +11,25 @@ li {
   border: solid 1px black;
   height: fit-content;
   width: 200px;
-  background-image: linear-gradient(to bottom right, purple, lightgray);
+  /* background-image: linear-gradient(to bottom right, purple, lightgray); */
   box-shadow: 5px 5px 5px 0 lightgray;
   border-radius: 10px;
   border: 10px;
-}
-
-li:nth-child("span") {
-  font-weight: bold;
+  border: solid 1px lightgray;
+  word-break: break-all;
 }
 
 .labels {
   display: flex;
-  margin-left: 43px;
+  margin-left: 41px;
   text-decoration: underline;
   font-size: 40px;
   height: 40px;
   padding-bottom: 10px;
 }
 .theNoteTitle {
-  margin: 5px;
+  margin: 2px;
+  font-size: 30px;
 }
 .bodyT {
   padding-left: 10px;
@@ -51,16 +50,27 @@ li:nth-child("span") {
   justify-content: center;
 }
 .titleText {
+  font-family: "roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
   width: 300px;
+  height: 40px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .noteText {
   width: 300px;
   height: 100px;
+  justify-content: flex-start;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top: none;
 }
 h1 {
   display: flex;
   justify-content: center;
-  font-size: 70px;
+  font-size: 40px;
+  font-family: "exo", sans-serif;
 }
 .bodyNote {
   padding-bottom: 10px;
@@ -76,10 +86,52 @@ h3 {
 }
 .title {
   font-family: "roboto", sans-serif;
-  font-weight: bold;
-  font-size: 25px;
+  font-weight: bolder;
+  font-size: 20px;
 }
-
+p {
+  font-family: "exo", sans-serif;
+}
+button {
+  background-color: white;
+  font-family: "exo", sans-serif;
+  border-radius: 10px;
+  font-weight: bolder;
+  color: black;
+}
+input {
+  font-family: "exo", sans-serif;
+  /* background-image: linear-gradient(to bottom right, purple, gray); */
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0 lightgray;
+  font-size: 20px;
+}
+.editTitle {
+  font-family: "roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  /* background-image: linear-gradient(to bottom right, purple, lightgray); */
+  word-break: break-all;
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0 lightgray;
+  border: solid 1px lightgray;
+}
+.titleText::placeholder {
+  font-family: "roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  /* color: white; */
+  opacity: 1;
+}
+input::placeholder {
+  font-family: "exo", sans-serif;
+  /* color: white; */
+  opacity: 1;
+}
+.radio {
+  box-shadow: none;
+}
 /* h3 { */
 /* border: solid 1px lightgray; */
 /* } */
