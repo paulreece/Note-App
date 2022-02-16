@@ -6,24 +6,12 @@ const editNote = document.getElementById("editNote");
 const noteList = document.getElementById("noteList");
 const saveNote = document.getElementById("saveNote");
 const radioB = document.querySelectorAll("li");
+let saveEdit = document.getElementById("saveEdit");
 let deleted = "";
 let logged = new Date().toDateString();
-console.log(logged);
+// let editTitle = document.querySelector("editTitle");
 
-// const dates = [
-//   {
-//     id: 1,
-//     title: "Sample note",
-//     body: "This is the body of my note",
-//     date: logged,
-//   },
-//   {
-//     title: "This is one",
-//     body: "of my notes",
-//     id: 2,
-//     date: logged,
-//   },
-// ];
+console.log(logged);
 
 function listNotes() {
   fetch(url)
@@ -34,6 +22,7 @@ function listNotes() {
       }
     });
 }
+
 noteForm.addEventListener("submit", function () {
   event.preventDefault();
   const titleText = document.getElementById("titleText").value;
@@ -54,9 +43,10 @@ noteForm.addEventListener("submit", function () {
     });
 });
 
-noteList.addEventListener("click", function (e) {
+noteList.addEventListener("click", function liListen(e) {
   radio = e.target.id;
   console.log(radio);
+  noteList.removeEventListener("click", liListen);
 });
 
 delNote.addEventListener("click", function () {
@@ -86,7 +76,7 @@ delNote.addEventListener("click", function () {
 //     });
 // });
 
-editNote.addEventListener("click", function () {
+editNote.addEventListener("click", function edited() {
   document.getElementById(
     radio
   ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
@@ -97,6 +87,13 @@ editNote.addEventListener("click", function () {
   ).childNodes[2].innerHTML = `<input type="text" class="editText" id="${radio}" value="${
     document.getElementById(radio).childNodes[2].innerHTML
   }">`;
+  if (document.getElementById("saveContain").innerHTML.length < 1) {
+    document.getElementById(
+      "saveContain"
+    ).innerHTML = `<button id="saveEdit" onclick="foo(this);">Save Edited Note</button>`;
+  }
+  editNote.removeEventListener("click", edited);
+  // console.log(document.getElementById("saveContain").innerHTML.length);
 });
 
 function renderNoteItem(noteObj) {
@@ -112,7 +109,7 @@ function deletNoteItem() {
 
 listNotes();
 
-saveEdit.addEventListener("click", function () {
+saveEdit.addEventListener("click", function savDit() {
   event.preventDefault();
   console.log(radio);
   const titled =
@@ -137,5 +134,34 @@ saveEdit.addEventListener("click", function () {
       document.getElementById(radio).childNodes[1].innerHTML = titled;
       document.getElementById(radio).childNodes[2].innerHTML = noted;
       document.getElementById(radio).childNodes[3].innerHTML = logged;
+      // document.getElementById("saveContain").innerHTML = "";
+      editNote.addEventListener("click", function edited() {
+        document.getElementById(
+          radio
+        ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
+          document.getElementById(radio).childNodes[1].innerHTML
+        }">`;
+        document.getElementById(
+          radio
+        ).childNodes[2].innerHTML = `<input type="text" class="editText" id="${radio}" value="${
+          document.getElementById(radio).childNodes[2].innerHTML
+        }">`;
+        editNote.removeEventListener("click", edited);
+      });
+      noteList.addEventListener("click", function liListen(e) {
+        radio = e.target.id;
+        console.log(radio);
+        noteList.removeEventListener("click", liListen);
+      });
     });
 });
+
+function foo(obj) {
+  obj.disabled = true;
+  setTimeout(function () {
+    obj.disabled = false;
+  }, 6000);
+}
+// document.querySelector("editTitle").addEventListener("click", function ()
+
+// });
