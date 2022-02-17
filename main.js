@@ -68,11 +68,29 @@ delNote.addEventListener("click", function () {
       console.log(data);
     });
   noteList.removeChild(noteEl);
+  editNote.addEventListener("click", function edited() {
+    console.log("edit clicked");
+    document.getElementById(
+      radio
+    ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
+      document.getElementById(radio).childNodes[1].innerHTML
+    }">`;
+    document.getElementById(
+      radio
+    ).childNodes[2].innerHTML = `<input type="text" class="editText" id="${radio}" value="${
+      document.getElementById(radio).childNodes[2].innerHTML
+    }">`;
+    editNote.removeEventListener("click", edited);
+    document.getElementById(
+      "saveContain"
+    ).innerHTML = `<button id="saveEdit">Save Edited Note</button>`;
+  });
   noteList.addEventListener("click", function liListen(e) {
     radio = e.target.id;
     console.log(radio);
     noteList.removeEventListener("click", liListen);
   });
+  document.getElementById("saveContain").innerHTML = "";
 });
 
 // editNote.addEventListener("click", function () {
