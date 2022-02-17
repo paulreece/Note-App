@@ -9,9 +9,6 @@ const radioB = document.querySelectorAll("li");
 let saveEdit = document.getElementById("saveEdit");
 let deleted = "";
 let saveContain = document.getElementById("saveContain");
-// let editTitle = document.querySelector("editTitle");
-
-// console.log(logged);
 
 function listNotes() {
   fetch(url)
@@ -68,45 +65,12 @@ delNote.addEventListener("click", function () {
       console.log(data);
     });
   noteList.removeChild(noteEl);
-  editNote.addEventListener("click", function edited() {
-    console.log("edit clicked");
-    document.getElementById(
-      radio
-    ).childNodes[1].innerHTML = `<input class="editTitle" type="text" id="${radio}"value ="${
-      document.getElementById(radio).childNodes[1].innerHTML
-    }">`;
-    document.getElementById(
-      radio
-    ).childNodes[2].innerHTML = `<input type="text" class="editText" id="${radio}" value="${
-      document.getElementById(radio).childNodes[2].innerHTML
-    }">`;
-    editNote.removeEventListener("click", edited);
-    document.getElementById(
-      "saveContain"
-    ).innerHTML = `<button id="saveEdit">Save Edited Note</button>`;
-  });
   noteList.addEventListener("click", function liListen(e) {
     radio = e.target.id;
     console.log(radio);
     noteList.removeEventListener("click", liListen);
   });
-  document.getElementById("saveContain").innerHTML = "";
 });
-
-// editNote.addEventListener("click", function () {
-//   event.preventDefault();
-//   fetch(url + "/" + radio, {
-//     method: "PATCH",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//         title: titleText,
-//         body: noteText,
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       editNoteItem(data);
-//     });
-// });
 
 editNote.addEventListener("click", function edited() {
   console.log("edit clicked");
@@ -194,13 +158,3 @@ saveContain.addEventListener("click", function savDit() {
       });
     });
 });
-
-// function foo(obj) {
-//   obj.disabled = true;
-//   setTimeout(function () {
-//     obj.disabled = false;
-//   }, 6000);
-// }
-// document.querySelector("editTitle").addEventListener("click", function ()
-
-// });
